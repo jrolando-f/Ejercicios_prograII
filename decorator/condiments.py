@@ -14,6 +14,9 @@ class CondimentDecorator(Beverage, ABC):
     def __init__(self, beverage: Beverage):
         self._beverage = beverage
 
+    def get_size(self):
+        return self._beverage.get_size()
+
     @abstractmethod
     def get_description(self) -> str:
         pass
@@ -43,6 +46,7 @@ class Soy(CondimentDecorator):
     """
     Decorador para añadir Soja a una bebida.
     """
+
     def get_description(self) -> str:
         return self._beverage.get_description() + ", Soja"
 
@@ -59,6 +63,7 @@ class Whip(CondimentDecorator):
     def cost(self) -> float:
         return self._beverage.cost() + 0.10
 
+#Agrego el nuevo condimento Caramel
 class Caramel(CondimentDecorator):
     """
     Decorador para añadir Caramel a una bebida.

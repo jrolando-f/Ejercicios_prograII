@@ -36,7 +36,7 @@ def main():
 
     # Pedido 5 (Nivel 2): Espresso con Soy tamaño Venti
     beverage5 = Espresso(size="Venti")
-    beverage5 = Soy(beverage4) 
+    beverage5 = Soy(beverage5) 
     print(f"Pedido 5: {beverage5.get_description()} ${beverage5.cost():.2f}")
 
 if __name__ == "__main__":

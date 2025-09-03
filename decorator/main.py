@@ -3,6 +3,7 @@
 
 from beverages import Espresso, DarkRoast, HouseBlend
 from condiments import Mocha, Whip, Soy, Caramel
+from builder import build_beverage
 
 def main():
     """
@@ -32,12 +33,19 @@ def main():
     # Pedido 4 (Nivel 1): Espresso con Caramel
     beverage4 = Espresso()
     beverage4 = Caramel(beverage4) 
+    beverage4 = Caramel(beverage4)
+    beverage4 = Caramel(beverage4)
     print(f"Pedido 4: {beverage4.get_description()} ${beverage4.cost():.2f}")
 
     # Pedido 5 (Nivel 2): Espresso con Soy tamaño Venti
     beverage5 = Espresso(size="Venti")
     beverage5 = Soy(beverage5) 
     print(f"Pedido 5: {beverage5.get_description()} ${beverage5.cost():.2f}")
+    
+    #Pedido 6 (Nivel 6): Builder
+    beverage6 = build_beverage("HouseBlend", "Venti", ["Mocha","Mocha","Milk"])
+    print(f"Pedido 6: {beverage6.get_description()} ${beverage6.cost():.2f}")
+    
 
 if __name__ == "__main__":
     main()

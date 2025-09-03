@@ -53,7 +53,7 @@ class HouseBlend(Beverage):
     """
     def __init__(self, size="Tall"):
         super().__init__(size)
-        self.description = "Café House Blend"
+        self.description = f"Café House Blend, tamaño: {self.size}"
 
     def cost(self) -> float:
         base_cost = 0.89
@@ -65,7 +65,7 @@ class DarkRoast(Beverage):
     """
     def __init__(self, size="Tall"):
         super().__init__(size)
-        self.description = "Café Dark Roast"
+        self.description = f"Café Dark Roast, tamaño: {self.size}"
 
     def cost(self) -> float:
         base_cost = 0.99
@@ -77,7 +77,7 @@ class Decaf(Beverage):
     """
     def __init__(self, size="Tall"):
         super().__init__(size)
-        self.description = "Café Descafeinado"
+        self.description = f"Café Descafeinado, tamaño: {self.size}"
 
     def cost(self) -> float:
         base_cost = 1.05
@@ -89,7 +89,7 @@ class Espresso(Beverage):
     """
     def __init__(self, size="Tall"):
         super().__init__(size)
-        self.description = "Espresso"
+        self.description = f"Espresso, tamaño: {self.size}"
 
     def cost(self) -> float:
         base_cost = 1.99

@@ -2,7 +2,7 @@
 # Script principal para probar el patrón Decorator.
 
 from beverages import Espresso, DarkRoast, HouseBlend
-from condiments import Mocha, Whip, Soy, Caramel
+from condiments import Mocha, Whip, Soy, Caramel, PrettyPrint
 from builder import build_beverage
 
 def main():
@@ -22,6 +22,7 @@ def main():
     beverage2 = Mocha(beverage2)  # Envolvemos con el segundo Mocha
     beverage2 = Whip(beverage2)   # Envolvemos con Crema
     print(f"Pedido 2: {beverage2.get_description()} ${beverage2.cost():.2f}")
+    print(f"Pedido 2 (pretty print): {PrettyPrint(beverage2).get_description()}")
 
     # Pedido 3: Un HouseBlend con Soja, Mocha y Crema.
     beverage3 = HouseBlend()
@@ -29,6 +30,8 @@ def main():
     beverage3 = Mocha(beverage3)
     beverage3 = Whip(beverage3)
     print(f"Pedido 3: {beverage3.get_description()} ${beverage3.cost():.2f}")
+    print(f"Pedido 3 (pretty print): {PrettyPrint(beverage3).get_description()}")
+
 
     # Pedido 4 (Nivel 1): Espresso con Caramel
     beverage4 = Espresso()
@@ -36,16 +39,19 @@ def main():
     beverage4 = Caramel(beverage4)
     beverage4 = Caramel(beverage4)
     print(f"Pedido 4: {beverage4.get_description()} ${beverage4.cost():.2f}")
+    print(f"Pedido 4 (pretty print): {PrettyPrint(beverage4).get_description()}")
 
     # Pedido 5 (Nivel 2): Espresso con Soy tamaño Venti
     beverage5 = Espresso(size="Venti")
     beverage5 = Soy(beverage5) 
     print(f"Pedido 5: {beverage5.get_description()} ${beverage5.cost():.2f}")
+
     
     #Pedido 6 (Nivel 6): Builder
     beverage6 = build_beverage("HouseBlend", "Venti", ["Mocha","Mocha","Milk"])
     print(f"Pedido 6: {beverage6.get_description()} ${beverage6.cost():.2f}")
-    
+    print(f"Pedido 6 (pretty print): {PrettyPrint(beverage6).get_description()}")
+
 
 if __name__ == "__main__":
     main()

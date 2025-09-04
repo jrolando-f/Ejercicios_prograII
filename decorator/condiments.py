@@ -2,6 +2,8 @@
 # Contiene el Decorador Abstracto y los Decoradores Concretos.
 
 from abc import ABC, abstractmethod
+
+from sklearn import base
 from beverages import Beverage
 
 # --- Decorador Abstracto ---
@@ -74,3 +76,39 @@ class Caramel(CondimentDecorator):
     def cost(self) -> float:
         return self._beverage.cost() + 0.20
 
+#Agrego el pretty print 
+class PrettyPrint(CondimentDecorator):
+    """
+    Decorador de presentación que agrupa condimentos repetidos en la descripcion sin afectar el costo. 
+    """
+    def get_description(self) -> str:
+        description = self._beverage.get_description()
+        cost = round(self._beverage.cost(), 2)
+
+        pedido = [p.strip() for p in description.split(",")] 
+
+        base = pedido[:2]
+
+        if len(pedido) <= 2:
+            return f"{description} ${cost}"
+
+        condimentos = {}
+        for caracteristica in pedido[2:]:
+            condimentos[caracteristica] = condimentos.get(caracteristica, 0) + 1
+        
+
+        desc_final = ", ".join(base)
+        for condimento, cantidad in condimentos.items():
+            if cantidad == 1:
+                desc_final += f", {condimento}"
+            elif cantidad == 2:
+                desc_final += f", Double {condimento}"
+            elif cantidad == 3:
+                desc_final += f", Triple {condimento}"
+            else:
+                desc_final += f", {cantidad}x {condimento}"
+
+        return f"{desc_final} ${cost}"
+
+   
+    

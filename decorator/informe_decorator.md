@@ -14,6 +14,22 @@ Esto permite que decoradores como `Soy` cobren precios distintos según el tama�
 
 ---
 
+## Manejo de tamaños en las bebidas
+
+Para el manejo de los tamaños se decidió centralizar los costos adicionales en la clase base `Beverage`.  
+Esto se implementó mediante un diccionario de clase:
+
+```python
+SIZE_COST = {"Tall": 0.0, "Grande": 0.10, "Venti": 0.20}
+```
+Esto permite:
+
+- Mantenibilidad: todos los recargos viven en un único lugar.
+
+- Simplicidad: cada bebida suma precio_base + size_cost() sin condicionales.
+
+- Extensibilidad: agregar o modificar tamaños requiere solo editar el diccionario.
+
 ### ✔️ Composición de condimentos (diseño flexible)
 
 Gracias al patrón Decorator, se pueden encadenar múltiples condimentos, incluso del mismo tipo (doble, triple).  
@@ -31,9 +47,9 @@ Este decorador **no afecta el cálculo de costo**, solo modifica el resultado de
 
 ### ✔️ Pruebas
 
-Se escribieron tests con `assert` para validar:
-- El costo total de combinaciones con uno o varios condimentos
-- La correcta lectura del tamaño desde decoradores
-- La descripción final (normal y con pretty print)
+Se escribieron tests con `pytest` para validar:
+- El costo total de combinaciones con uno o varios condimentos.
+- La correcta lectura del tamaño desde decoradores.
+- La descripción final.
 
-Los tests están en `test_decorator.py` y cubren al menos 5 casos representativos, incluyendo bebidas grandes, dobles, triples y con decoradores múltiples.
+Los tests están en `test_decorator.py` y cubren al menos 3 casos representativos, incluyendo bebidas grandes, dobles, triples y con decoradores múltiples.

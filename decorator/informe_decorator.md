@@ -30,6 +30,8 @@ Esto permite:
 
 - Extensibilidad: agregar o modificar tamaños requiere solo editar el diccionario.
 
+---
+
 ### ✔️ Composición de condimentos (diseño flexible)
 
 Gracias al patrón Decorator, se pueden encadenar múltiples condimentos, incluso del mismo tipo (doble, triple).  

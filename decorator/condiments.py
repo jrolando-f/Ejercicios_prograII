@@ -3,7 +3,7 @@
 
 from abc import ABC, abstractmethod
 
-from sklearn import base
+#from sklearn import base
 from beverages import Beverage
 
 # --- Decorador Abstracto ---

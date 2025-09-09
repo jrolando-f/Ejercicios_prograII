@@ -34,3 +34,7 @@ def test_chicago_clam_pizza_has_correct_ingredients():
     pizza = store.order_pizza("clam")
     # Assert
     assert isinstance(pizza.clam, Clams)
+    
+    
+    
+#correr con \factory> python -m pytest tests/test_pizza.py

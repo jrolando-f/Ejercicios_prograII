@@ -1,3 +1,18 @@
+# Python
 __pycache__/
 *.pyc
+
+# Entornos virtuales
+.venv/
 venv/
+ENV/
+env/
+
+# Tests
+.pytest_cache/
+.coverage
+htmlcov/
+
+# VS Code
+.vscode/
+.history/
